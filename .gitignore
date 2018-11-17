@@ -1,0 +1,11 @@
+#过滤文件类型
+#keil 5
+Output
+*.scvd
+*.uvgui.*
+*.uvopt
+JLinkArm_*.ini
+
+#Qt
+*.pro.user
+
