@@ -47,7 +47,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Output\</OutputDirectory>
-          <OutputName>hello</OutputName>
+          <OutputName>RTOSDemo</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -79,9 +79,9 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
-            <RunUserProg2>1</RunUserProg2>
-            <UserProg1Name>fromelf --bin ".\Output\@L.axf" --output ".\Output\@L.bin"</UserProg1Name>
-            <UserProg2Name>fromelf --text -c ".\Output\@L.axf" --output ".\Output\@L.txt"</UserProg2Name>
+            <RunUserProg2>0</RunUserProg2>
+            <UserProg1Name>fromelf.exe --bin --output "$L@L.bin" "$L@L.axf"</UserProg1Name>
+            <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopA1X>0</nStopA1X>
@@ -138,13 +138,13 @@
           </Simulator>
           <Target>
             <UseTarget>1</UseTarget>
-            <LoadApplicationAtStartup>0</LoadApplicationAtStartup>
-            <RunToMain>0</RunToMain>
+            <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
+            <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
-            <RestoreWatchpoints>0</RestoreWatchpoints>
+            <RestoreWatchpoints>1</RestoreWatchpoints>
             <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
             <RestoreFunctions>0</RestoreFunctions>
-            <RestoreToolbox>0</RestoreToolbox>
+            <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
@@ -204,14 +204,14 @@
             <AdsANot>0</AdsANot>
             <AdsLLst>1</AdsLLst>
             <AdsLmap>1</AdsLmap>
-            <AdsLcgr>0</AdsLcgr>
+            <AdsLcgr>1</AdsLcgr>
             <AdsLsym>1</AdsLsym>
             <AdsLszi>1</AdsLszi>
             <AdsLtoi>1</AdsLtoi>
-            <AdsLsun>0</AdsLsun>
-            <AdsLven>0</AdsLven>
-            <AdsLsxf>0</AdsLsxf>
-            <RvctClst>1</RvctClst>
+            <AdsLsun>1</AdsLsun>
+            <AdsLven>1</AdsLven>
+            <AdsLsxf>1</AdsLsxf>
+            <RvctClst>0</RvctClst>
             <GenPPlst>0</GenPPlst>
             <AdsCpuType>ARM926EJ-S</AdsCpuType>
             <RvctDeviceName></RvctDeviceName>
@@ -226,29 +226,29 @@
             <RvdsMve>0</RvdsMve>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
-            <StupSel>1</StupSel>
+            <StupSel>0</StupSel>
             <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
             <RoSelD>3</RoSelD>
-            <RwSelD>5</RwSelD>
+            <RwSelD>3</RwSelD>
             <CodeSel>0</CodeSel>
             <OptFeed>0</OptFeed>
-            <NoZi1>1</NoZi1>
+            <NoZi1>0</NoZi1>
             <NoZi2>0</NoZi2>
             <NoZi3>0</NoZi3>
             <NoZi4>0</NoZi4>
             <NoZi5>0</NoZi5>
-            <Ro1Chk>1</Ro1Chk>
+            <Ro1Chk>0</Ro1Chk>
             <Ro2Chk>0</Ro2Chk>
             <Ro3Chk>0</Ro3Chk>
             <Ir1Chk>0</Ir1Chk>
             <Ir2Chk>0</Ir2Chk>
-            <Ra1Chk>1</Ra1Chk>
+            <Ra1Chk>0</Ra1Chk>
             <Ra2Chk>0</Ra2Chk>
             <Ra3Chk>0</Ra3Chk>
-            <Im1Chk>0</Im1Chk>
+            <Im1Chk>1</Im1Chk>
             <Im2Chk>0</Im2Chk>
             <OnChipMemories>
               <Ocm1>
@@ -288,18 +288,18 @@
               </IRAM>
               <IROM>
                 <Type>1</Type>
-                <StartAddress>0x400000</StartAddress>
-                <Size>0x8000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x40000</Size>
               </IROM>
               <XRAM>
-                <Type>1</Type>
+                <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x4000001</Size>
+                <Size>0x0</Size>
               </XRAM>
               <OCR_RVCT1>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x80000</Size>
+                <Size>0x0</Size>
               </OCR_RVCT1>
               <OCR_RVCT2>
                 <Type>1</Type>
@@ -323,8 +323,8 @@
               </OCR_RVCT5>
               <OCR_RVCT6>
                 <Type>0</Type>
-                <StartAddress>0x80000</StartAddress>
-                <Size>0x800000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x0</Size>
               </OCR_RVCT6>
               <OCR_RVCT7>
                 <Type>0</Type>
@@ -360,7 +360,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>0</wLevel>
+            <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
@@ -377,7 +377,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Driver\Include;.\User\LCD</IncludePath>
+              <IncludePath>.\Driver\Include;.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\portable\RVDS\ARM9_NUC970;.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\include;.\User</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -395,7 +395,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>..\..\..\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\portable\RVDS\ARM9_NUC970</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -419,7 +419,7 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>src</GroupName>
+          <GroupName>User</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
@@ -427,29 +427,29 @@
               <FilePath>.\User\main.c</FilePath>
             </File>
             <File>
-              <FileName>lcd_bsp.c</FileName>
+              <FileName>multithread.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\User\LCD\lcd_bsp.c</FilePath>
+              <FilePath>.\User\multithread.c</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Libraries</GroupName>
-          <Files>
+            <File>
+              <FileName>startup.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\User\startup.s</FilePath>
+            </File>
             <File>
               <FileName>standalone.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Driver\Source\standalone.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Lib</GroupName>
+          <Files>
             <File>
               <FileName>sys.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Driver\Source\sys.c</FilePath>
-            </File>
-            <File>
-              <FileName>sys_timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Driver\Source\sys_timer.c</FilePath>
             </File>
             <File>
               <FileName>sys_uart.c</FileName>
@@ -457,34 +457,49 @@
               <FilePath>.\Driver\Source\sys_uart.c</FilePath>
             </File>
             <File>
-              <FileName>system_nuc970.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Driver\Source\system_nuc970.c</FilePath>
-            </File>
-            <File>
-              <FileName>startup_NUC970.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Driver\Source\startup_NUC970.s</FilePath>
-            </File>
-            <File>
               <FileName>sys_nuc970.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\Driver\Source\sys_nuc970.s</FilePath>
             </File>
             <File>
-              <FileName>uart.c</FileName>
+              <FileName>system_nuc970.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Driver\Source\uart.c</FilePath>
+              <FilePath>.\Driver\Source\system_nuc970.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>FreeRTOS</GroupName>
+          <Files>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\list.c</FilePath>
             </File>
             <File>
-              <FileName>gpio.c</FileName>
+              <FileName>tasks.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Driver\Source\gpio.c</FilePath>
+              <FilePath>.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\tasks.c</FilePath>
             </File>
             <File>
-              <FileName>lcd.c</FileName>
+              <FileName>queue.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Driver\Source\lcd.c</FilePath>
+              <FilePath>.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\portable\RVDS\ARM9_NUC970\port.c</FilePath>
+            </File>
+            <File>
+              <FileName>portASM.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\portable\RVDS\ARM9_NUC970\portASM.s</FilePath>
+            </File>
+            <File>
+              <FileName>heap_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\portable\MemMang\heap_2.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,31 +1,35 @@
+#include <stdlib.h>
 #include "nuc970.h"
 #include "sys.h"
-#include "uart.h"
-#include "lcd_bsp.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
-uint8_t clor;
-int main(void)
+static void thread_1s(void *pvParameters);
+
+int main( void )
 {
     sysDisableCache();
     sysFlushCache(I_D_CACHE);
     sysEnableCache(CACHE_WRITE_BACK);
     sysInitializeUART();
+    sysSetLocalInterrupt(ENABLE_IRQ);
 
-	sysprintf("\n\n Hello NUC970 !!!\n");
+    sysprintf("\r\nFreeRTOS start\r\n");
 
-    sysprintf("APLL    clock %d MHz\n", sysGetClock(SYS_APLL));
-    sysprintf("UPLL    clock %d MHz\n", sysGetClock(SYS_UPLL));
-    sysprintf("CPU     clock %d MHz\n", sysGetClock(SYS_CPU));
-    sysprintf("System  clock %d MHz\n", sysGetClock(SYS_SYSTEM));
-    sysprintf("HCLK1   clock %d MHz\n", sysGetClock(SYS_HCLK1));
-    sysprintf("HCLK234 clock %d MHz\n", sysGetClock(SYS_HCLK234));
-    sysprintf("PCLK    clock %d MHz\n", sysGetClock(SYS_PCLK));
+    xTaskCreate(thread_1s,"thread 1s",configMINIMAL_STACK_SIZE,NULL,tskIDLE_PRIORITY+1,NULL);
 
-    lcd_lint();
-    clor=0x11;
+    vTaskStartScheduler();
+
+    while(1);
+}
+/*-----------------------------------------------------------*/
+
+static void thread_1s(void *pvParameters)
+{
+    (void) pvParameters;
     while(1)
     {
-        memset((void *)u16FrameBufPtr,clor, 800*480*2);
-        clor+=0x11;
+        vTaskDelay(1000/portTICK_RATE_MS);
+        sysprintf("*");
     }
 }
