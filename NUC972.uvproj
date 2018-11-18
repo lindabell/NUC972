@@ -212,7 +212,7 @@
             <AdsLven>0</AdsLven>
             <AdsLsxf>0</AdsLsxf>
             <RvctClst>1</RvctClst>
-            <GenPPlst>1</GenPPlst>
+            <GenPPlst>0</GenPPlst>
             <AdsCpuType>ARM926EJ-S</AdsCpuType>
             <RvctDeviceName></RvctDeviceName>
             <mOS>0</mOS>
@@ -377,7 +377,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Driver\Include</IncludePath>
+              <IncludePath>.\Driver\Include;.\User\LCD</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -426,6 +426,11 @@
               <FileType>1</FileType>
               <FilePath>.\User\main.c</FilePath>
             </File>
+            <File>
+              <FileName>lcd_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\LCD\lcd_bsp.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -465,6 +470,21 @@
               <FileName>sys_nuc970.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\Driver\Source\sys_nuc970.s</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\Source\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\Source\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\Source\lcd.c</FilePath>
             </File>
           </Files>
         </Group>

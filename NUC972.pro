@@ -39,6 +39,7 @@ INCLUDEPATH +=  \
     ThirdParty/yaffs2/include/linux/ \
     ThirdParty/yaffs2/include/\
     ThirdParty/yaffs2/ \
+    User\LCD
 
 HEADERS += \
     Driver/Include/2d.h \
@@ -336,7 +337,9 @@ HEADERS += \
     ThirdParty/yaffs2/yaffscfg.h \
     ThirdParty/yaffs2/yaffsfs.h \
     ThirdParty/yaffs2/ydirectenv.h \
-    ThirdParty/yaffs2/yportenv.h
+    ThirdParty/yaffs2/yportenv.h \
+    User/LCD/LCD.h \
+    User/LCD/lcd_bsp.h
 
 SOURCES += \
     Driver/Source/2d.c \
@@ -541,6 +544,8 @@ SOURCES += \
     ThirdParty/yaffs2/yaffs_yaffs1.c \
     ThirdParty/yaffs2/yaffs_yaffs2.c \
     ThirdParty/yaffs2/yaffsfs.c \
-    User/main.c
+    User/main.c \
+    User/LCD/lcd_bsp.c \
+    User/LCD/lcd_bsp.c
 
 

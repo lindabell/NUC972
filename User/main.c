@@ -1,22 +1,16 @@
-/**************************************************************************//**
- * @file     main.c
- * @version  V1.00
- * $Date: 15/05/07 5:38p $
- * @brief    NUC970 Driver Sample Code
- *
- * @note
- * Copyright (C) 2015 Nuvoton Technology Corp. All rights reserved.
- ******************************************************************************/
 #include "nuc970.h"
 #include "sys.h"
+#include "uart.h"
+#include "lcd_bsp.h"
 
-/*-----------------------------------------------------------------------------*/
+uint8_t clor;
 int main(void)
 {
     sysDisableCache();
     sysFlushCache(I_D_CACHE);
     sysEnableCache(CACHE_WRITE_BACK);
     sysInitializeUART();
+
 	sysprintf("\n\n Hello NUC970 !!!\n");
 
     sysprintf("APLL    clock %d MHz\n", sysGetClock(SYS_APLL));
@@ -27,5 +21,11 @@ int main(void)
     sysprintf("HCLK234 clock %d MHz\n", sysGetClock(SYS_HCLK234));
     sysprintf("PCLK    clock %d MHz\n", sysGetClock(SYS_PCLK));
 
-    return 0;
+    lcd_lint();
+    clor=0x11;
+    while(1)
+    {
+        memset((void *)u16FrameBufPtr,clor, 800*480*2);
+        clor+=0x11;
+    }
 }
