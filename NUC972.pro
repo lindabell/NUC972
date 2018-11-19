@@ -39,6 +39,14 @@ INCLUDEPATH +=  \
     ThirdParty/yaffs2/include/linux/ \
     ThirdParty/yaffs2/include/\
     ThirdParty/yaffs2/ \
+    User/lvgl/lv_core/ \
+    User/lvgl/lv_draw/ \
+    User/lvgl/lv_fonts/ \
+    User/lvgl/lv_hal/ \
+    User/lvgl/lv_misc/ \
+    User/lvgl/lv_objx/ \
+    User/lvgl/lv_themes/ \
+    User/lvgl/  \
     User\LCD
 
 HEADERS += \
@@ -339,7 +347,81 @@ HEADERS += \
     ThirdParty/yaffs2/ydirectenv.h \
     ThirdParty/yaffs2/yportenv.h \
     User/LCD/LCD.h \
-    User/LCD/lcd_bsp.h
+    User/LCD/lcd_bsp.h \
+    User/lvgl/lv_core/lv_group.h \
+    User/lvgl/lv_core/lv_indev.h \
+    User/lvgl/lv_core/lv_obj.h \
+    User/lvgl/lv_core/lv_refr.h \
+    User/lvgl/lv_core/lv_style.h \
+    User/lvgl/lv_core/lv_vdb.h \
+    User/lvgl/lv_draw/lv_draw.h \
+    User/lvgl/lv_draw/lv_draw_arc.h \
+    User/lvgl/lv_draw/lv_draw_img.h \
+    User/lvgl/lv_draw/lv_draw_label.h \
+    User/lvgl/lv_draw/lv_draw_line.h \
+    User/lvgl/lv_draw/lv_draw_rbasic.h \
+    User/lvgl/lv_draw/lv_draw_rect.h \
+    User/lvgl/lv_draw/lv_draw_triangle.h \
+    User/lvgl/lv_draw/lv_draw_vbasic.h \
+    User/lvgl/lv_fonts/lv_font_builtin.h \
+    User/lvgl/lv_hal/lv_hal.h \
+    User/lvgl/lv_hal/lv_hal_disp.h \
+    User/lvgl/lv_hal/lv_hal_indev.h \
+    User/lvgl/lv_hal/lv_hal_tick.h \
+    User/lvgl/lv_misc/lv_anim.h \
+    User/lvgl/lv_misc/lv_area.h \
+    User/lvgl/lv_misc/lv_circ.h \
+    User/lvgl/lv_misc/lv_color.h \
+    User/lvgl/lv_misc/lv_font.h \
+    User/lvgl/lv_misc/lv_fs.h \
+    User/lvgl/lv_misc/lv_ll.h \
+    User/lvgl/lv_misc/lv_log.h \
+    User/lvgl/lv_misc/lv_math.h \
+    User/lvgl/lv_misc/lv_mem.h \
+    User/lvgl/lv_misc/lv_symbol_def.h \
+    User/lvgl/lv_misc/lv_task.h \
+    User/lvgl/lv_misc/lv_templ.h \
+    User/lvgl/lv_misc/lv_txt.h \
+    User/lvgl/lv_misc/lv_ufs.h \
+    User/lvgl/lv_objx/lv_arc.h \
+    User/lvgl/lv_objx/lv_bar.h \
+    User/lvgl/lv_objx/lv_btn.h \
+    User/lvgl/lv_objx/lv_btnm.h \
+    User/lvgl/lv_objx/lv_calendar.h \
+    User/lvgl/lv_objx/lv_cb.h \
+    User/lvgl/lv_objx/lv_chart.h \
+    User/lvgl/lv_objx/lv_cont.h \
+    User/lvgl/lv_objx/lv_ddlist.h \
+    User/lvgl/lv_objx/lv_gauge.h \
+    User/lvgl/lv_objx/lv_img.h \
+    User/lvgl/lv_objx/lv_imgbtn.h \
+    User/lvgl/lv_objx/lv_kb.h \
+    User/lvgl/lv_objx/lv_label.h \
+    User/lvgl/lv_objx/lv_led.h \
+    User/lvgl/lv_objx/lv_line.h \
+    User/lvgl/lv_objx/lv_list.h \
+    User/lvgl/lv_objx/lv_lmeter.h \
+    User/lvgl/lv_objx/lv_mbox.h \
+    User/lvgl/lv_objx/lv_objx_templ.h \
+    User/lvgl/lv_objx/lv_page.h \
+    User/lvgl/lv_objx/lv_preload.h \
+    User/lvgl/lv_objx/lv_roller.h \
+    User/lvgl/lv_objx/lv_slider.h \
+    User/lvgl/lv_objx/lv_sw.h \
+    User/lvgl/lv_objx/lv_ta.h \
+    User/lvgl/lv_objx/lv_tabview.h \
+    User/lvgl/lv_objx/lv_win.h \
+    User/lvgl/lv_themes/lv_theme.h \
+    User/lvgl/lv_themes/lv_theme_alien.h \
+    User/lvgl/lv_themes/lv_theme_default.h \
+    User/lvgl/lv_themes/lv_theme_material.h \
+    User/lvgl/lv_themes/lv_theme_mono.h \
+    User/lvgl/lv_themes/lv_theme_nemo.h \
+    User/lvgl/lv_themes/lv_theme_night.h \
+    User/lvgl/lv_themes/lv_theme_templ.h \
+    User/lvgl/lv_themes/lv_theme_zen.h \
+    User/lvgl/lv_conf_templ.h \
+    User/lvgl/lvgl.h
 
 SOURCES += \
     Driver/Source/2d.c \
@@ -546,6 +628,94 @@ SOURCES += \
     ThirdParty/yaffs2/yaffsfs.c \
     User/main.c \
     User/LCD/lcd_bsp.c \
-    User/LCD/lcd_bsp.c
+    User/LCD/lcd_bsp.c \
+    User/lvgl/lv_core/lv_group.c \
+    User/lvgl/lv_core/lv_indev.c \
+    User/lvgl/lv_core/lv_obj.c \
+    User/lvgl/lv_core/lv_refr.c \
+    User/lvgl/lv_core/lv_style.c \
+    User/lvgl/lv_core/lv_vdb.c \
+    User/lvgl/lv_draw/lv_draw.c \
+    User/lvgl/lv_draw/lv_draw_arc.c \
+    User/lvgl/lv_draw/lv_draw_img.c \
+    User/lvgl/lv_draw/lv_draw_label.c \
+    User/lvgl/lv_draw/lv_draw_line.c \
+    User/lvgl/lv_draw/lv_draw_rbasic.c \
+    User/lvgl/lv_draw/lv_draw_rect.c \
+    User/lvgl/lv_draw/lv_draw_triangle.c \
+    User/lvgl/lv_draw/lv_draw_vbasic.c \
+    User/lvgl/lv_fonts/lv_font_builtin.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_10.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_10_cyrillic.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_10_latin_sup.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_20.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_20_cyrillic.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_20_latin_sup.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_30.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_30_cyrillic.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_30_latin_sup.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_40.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_40_cyrillic.c \
+    User/lvgl/lv_fonts/lv_font_dejavu_40_latin_sup.c \
+    User/lvgl/lv_fonts/lv_font_monospace_8.c \
+    User/lvgl/lv_fonts/lv_font_symbol_10.c \
+    User/lvgl/lv_fonts/lv_font_symbol_20.c \
+    User/lvgl/lv_fonts/lv_font_symbol_30.c \
+    User/lvgl/lv_fonts/lv_font_symbol_40.c \
+    User/lvgl/lv_hal/lv_hal_disp.c \
+    User/lvgl/lv_hal/lv_hal_indev.c \
+    User/lvgl/lv_hal/lv_hal_tick.c \
+    User/lvgl/lv_misc/lv_anim.c \
+    User/lvgl/lv_misc/lv_area.c \
+    User/lvgl/lv_misc/lv_circ.c \
+    User/lvgl/lv_misc/lv_color.c \
+    User/lvgl/lv_misc/lv_font.c \
+    User/lvgl/lv_misc/lv_fs.c \
+    User/lvgl/lv_misc/lv_ll.c \
+    User/lvgl/lv_misc/lv_log.c \
+    User/lvgl/lv_misc/lv_math.c \
+    User/lvgl/lv_misc/lv_mem.c \
+    User/lvgl/lv_misc/lv_task.c \
+    User/lvgl/lv_misc/lv_templ.c \
+    User/lvgl/lv_misc/lv_txt.c \
+    User/lvgl/lv_misc/lv_ufs.c \
+    User/lvgl/lv_objx/lv_arc.c \
+    User/lvgl/lv_objx/lv_bar.c \
+    User/lvgl/lv_objx/lv_btn.c \
+    User/lvgl/lv_objx/lv_btnm.c \
+    User/lvgl/lv_objx/lv_calendar.c \
+    User/lvgl/lv_objx/lv_cb.c \
+    User/lvgl/lv_objx/lv_chart.c \
+    User/lvgl/lv_objx/lv_cont.c \
+    User/lvgl/lv_objx/lv_ddlist.c \
+    User/lvgl/lv_objx/lv_gauge.c \
+    User/lvgl/lv_objx/lv_img.c \
+    User/lvgl/lv_objx/lv_imgbtn.c \
+    User/lvgl/lv_objx/lv_kb.c \
+    User/lvgl/lv_objx/lv_label.c \
+    User/lvgl/lv_objx/lv_led.c \
+    User/lvgl/lv_objx/lv_line.c \
+    User/lvgl/lv_objx/lv_list.c \
+    User/lvgl/lv_objx/lv_lmeter.c \
+    User/lvgl/lv_objx/lv_mbox.c \
+    User/lvgl/lv_objx/lv_objx_templ.c \
+    User/lvgl/lv_objx/lv_page.c \
+    User/lvgl/lv_objx/lv_preload.c \
+    User/lvgl/lv_objx/lv_roller.c \
+    User/lvgl/lv_objx/lv_slider.c \
+    User/lvgl/lv_objx/lv_sw.c \
+    User/lvgl/lv_objx/lv_ta.c \
+    User/lvgl/lv_objx/lv_tabview.c \
+    User/lvgl/lv_objx/lv_win.c \
+    User/lvgl/lv_themes/lv_theme.c \
+    User/lvgl/lv_themes/lv_theme_alien.c \
+    User/lvgl/lv_themes/lv_theme_default.c \
+    User/lvgl/lv_themes/lv_theme_material.c \
+    User/lvgl/lv_themes/lv_theme_mono.c \
+    User/lvgl/lv_themes/lv_theme_nemo.c \
+    User/lvgl/lv_themes/lv_theme_night.c \
+    User/lvgl/lv_themes/lv_theme_templ.c \
+    User/lvgl/lv_themes/lv_theme_zen.c
+
 
 

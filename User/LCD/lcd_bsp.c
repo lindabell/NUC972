@@ -8,7 +8,7 @@
 
 uint16_t *u16FrameBufPtr;
 
-void lcd_lint(void)
+void lcd_init(void)
 {
     //add by qlqc
     outpw(REG_CLK_PCLKEN0,inpw(REG_CLK_PCLKEN0) | (1<<3)); //Enable GPIO engin clock.
@@ -37,7 +37,7 @@ void lcd_lint(void)
     //设置 像素格式RGB565
     vpostSetVASrc(VA_SRC_RGB565);
     // 获取显存地址指针
-    u16FrameBufPtr = (uint16_t *)vpostGetFrameBuffer();
+    u16FrameBufPtr =(uint16_t *)vpostGetFrameBuffer();
     if(u16FrameBufPtr == NULL)
     {
         sysprintf("获取显存地址指针失败!!\n");

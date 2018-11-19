@@ -4,6 +4,6 @@
 
 extern uint16_t *u16FrameBufPtr;
 
-void lcd_lint(void);
+void lcd_init(void);
 
 #endif
