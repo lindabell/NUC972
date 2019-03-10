@@ -50,7 +50,7 @@
           <OutputName>RTOSDemo</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>0</CreateHexFile>
+          <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Output\</ListingPath>
@@ -173,10 +173,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4096</DriverSelection>
+            <DriverSelection>4098</DriverSelection>
           </Flash1>
           <bUseTDR>0</bUseTDR>
-          <Flash2>BIN\UL2ARM.DLL</Flash2>
+          <Flash2>Segger\JLTAgdi.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -377,7 +377,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Driver\Include;.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\portable\RVDS\ARM9_NUC970;.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\include;.\User;.\User\lvgl;.\User\LCD</IncludePath>
+              <IncludePath>.\Driver\Include;.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\portable\RVDS\ARM9_NUC970;.\ThirdParty\FreeRTOSV9.0.0\FreeRTOS\Source\include;.\User;.\User\lvgl;.\User\LCD;.\User\ui</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -961,6 +961,36 @@
               <FileType>1</FileType>
               <FilePath>.\User\lvgl\lv_fonts\lv_font_symbol_40.c</FilePath>
             </File>
+            <File>
+              <FileName>lv_canvas.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\lvgl\lv_objx\lv_canvas.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_spinbox.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\lvgl\lv_objx\lv_spinbox.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_table.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\lvgl\lv_objx\lv_table.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_tileview.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\lvgl\lv_objx\lv_tileview.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_lang.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\lvgl\lv_core\lv_lang.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_gc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\lvgl\lv_misc\lv_gc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -975,6 +1005,21 @@
               <FileName>img_bubble_pattern.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\User\img_bubble_pattern.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ui</GroupName>
+          <Files>
+            <File>
+              <FileName>desktop.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\desktop.c</FilePath>
+            </File>
+            <File>
+              <FileName>music.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\music.c</FilePath>
             </File>
           </Files>
         </Group>

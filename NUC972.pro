@@ -39,6 +39,7 @@ INCLUDEPATH +=  \
     ThirdParty/yaffs2/include/linux/ \
     ThirdParty/yaffs2/include/\
     ThirdParty/yaffs2/ \
+    User/   \
     User/lvgl/lv_core/ \
     User/lvgl/lv_draw/ \
     User/lvgl/lv_fonts/ \
@@ -47,7 +48,8 @@ INCLUDEPATH +=  \
     User/lvgl/lv_objx/ \
     User/lvgl/lv_themes/ \
     User/lvgl/  \
-    User\LCD
+    User/LCD/   \
+    User/ui/
 
 HEADERS += \
     Driver/Include/2d.h \
@@ -421,7 +423,9 @@ HEADERS += \
     User/lvgl/lv_themes/lv_theme_templ.h \
     User/lvgl/lv_themes/lv_theme_zen.h \
     User/lvgl/lv_conf_templ.h \
-    User/lvgl/lvgl.h
+    User/lvgl/lvgl.h \
+    User/ui/desktop.h \
+    User/lv_conf.h
 
 SOURCES += \
     Driver/Source/2d.c \
@@ -715,7 +719,9 @@ SOURCES += \
     User/lvgl/lv_themes/lv_theme_nemo.c \
     User/lvgl/lv_themes/lv_theme_night.c \
     User/lvgl/lv_themes/lv_theme_templ.c \
-    User/lvgl/lv_themes/lv_theme_zen.c
+    User/lvgl/lv_themes/lv_theme_zen.c \
+    User/ui/desktop.c \
+    User/ui/music.c
 
 
 

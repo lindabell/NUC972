@@ -14,7 +14,7 @@ static void thread_1s(void *pvParameters);
 static void MainGui( void *pvParameters );
 void time_init(void);
 
-int main( void )
+int main(void)
 {
     sysDisableCache();
     sysFlushCache(I_D_CACHE);
@@ -72,9 +72,10 @@ static void tft_map(int32_t x1, int32_t y1, int32_t x2, int32_t y2, const lv_col
 }
 
 #include "demo.h"
+#include "desktop.h"
 static void MainGui( void *pvParameters )
 {
-    ( void ) pvParameters;
+    (void) pvParameters;
 
 
     lv_init();
@@ -91,9 +92,13 @@ static void MainGui( void *pvParameters )
 
     lv_disp_drv_register(&disp_drv);
 
-    demo_create();
+    //demo_create();
 
-    for( ;; )
+    //lv_obj_t * btn1 = lv_btn_create(lv_scr_act(), NULL);
+
+    desktop_ui_create(lv_scr_act());
+
+    while(1)
     {
         lv_task_handler();
         vTaskDelay(10);
@@ -111,7 +116,7 @@ void time_init(void)
 {
     // 使能 ETIMER0 时钟
     outpw(REG_CLK_PCLKEN0, inpw(REG_CLK_PCLKEN0) | (1 << 4));
-    // 设置中断频率为 1HZ
+    // 设置中断频率为 1KHZ
     ETIMER_Open(0, ETIMER_PERIODIC_MODE, 1000);
     //使能定时器中断
     ETIMER_EnableInt(0);
