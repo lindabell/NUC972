@@ -2,6 +2,14 @@
 #include "lvgl.h"
 
 LV_IMG_DECLARE(music);
+LV_IMG_DECLARE(pic);
+LV_IMG_DECLARE(file);
+LV_IMG_DECLARE(setting);
+LV_IMG_DECLARE(video);
+LV_IMG_DECLARE(network);
+LV_IMG_DECLARE(qq);
+LV_IMG_DECLARE(Wechat);
+LV_IMG_DECLARE(calendar);
 void desktop_ui_create(void *parent)
 {
 
@@ -57,6 +65,61 @@ void desktop_ui_create(void *parent)
             lv_imgbtn_set_toggle(imgbtn[j][i], true);
         }
     }
+    lv_imgbtn_set_src(imgbtn[0][0], LV_BTN_STATE_REL, &qq);
+    lv_imgbtn_set_src(imgbtn[0][0], LV_BTN_STATE_PR, &qq);
+    lv_imgbtn_set_src(imgbtn[0][0], LV_BTN_STATE_TGL_REL, &qq);
+    lv_imgbtn_set_src(imgbtn[0][0], LV_BTN_STATE_TGL_PR, &qq);
+    lv_imgbtn_set_style(imgbtn[0][0], LV_BTN_STATE_PR, &style_pr);
+    lv_imgbtn_set_style(imgbtn[0][0], LV_BTN_STATE_TGL_PR, &style_pr);
+
+    lv_imgbtn_set_src(imgbtn[0][1], LV_BTN_STATE_REL, &pic);
+    lv_imgbtn_set_src(imgbtn[0][1], LV_BTN_STATE_PR, &pic);
+    lv_imgbtn_set_src(imgbtn[0][1], LV_BTN_STATE_TGL_REL, &pic);
+    lv_imgbtn_set_src(imgbtn[0][1], LV_BTN_STATE_TGL_PR, &pic);
+    lv_imgbtn_set_style(imgbtn[0][1], LV_BTN_STATE_PR, &style_pr);
+    lv_imgbtn_set_style(imgbtn[0][1], LV_BTN_STATE_TGL_PR, &style_pr);
+
+    lv_imgbtn_set_src(imgbtn[0][2], LV_BTN_STATE_REL, &file);
+    lv_imgbtn_set_src(imgbtn[0][2], LV_BTN_STATE_PR, &file);
+    lv_imgbtn_set_src(imgbtn[0][2], LV_BTN_STATE_TGL_REL, &file);
+    lv_imgbtn_set_src(imgbtn[0][2], LV_BTN_STATE_TGL_PR, &file);
+    lv_imgbtn_set_style(imgbtn[0][2], LV_BTN_STATE_PR, &style_pr);
+    lv_imgbtn_set_style(imgbtn[0][2], LV_BTN_STATE_TGL_PR, &style_pr);
+
+    lv_imgbtn_set_src(imgbtn[0][3], LV_BTN_STATE_REL, &setting);
+    lv_imgbtn_set_src(imgbtn[0][3], LV_BTN_STATE_PR, &setting);
+    lv_imgbtn_set_src(imgbtn[0][3], LV_BTN_STATE_TGL_REL, &setting);
+    lv_imgbtn_set_src(imgbtn[0][3], LV_BTN_STATE_TGL_PR, &setting);
+    lv_imgbtn_set_style(imgbtn[0][3], LV_BTN_STATE_PR, &style_pr);
+    lv_imgbtn_set_style(imgbtn[0][3], LV_BTN_STATE_TGL_PR, &style_pr);
+
+    lv_imgbtn_set_src(imgbtn[0][4], LV_BTN_STATE_REL, &video);
+    lv_imgbtn_set_src(imgbtn[0][4], LV_BTN_STATE_PR, &video);
+    lv_imgbtn_set_src(imgbtn[0][4], LV_BTN_STATE_TGL_REL, &video);
+    lv_imgbtn_set_src(imgbtn[0][4], LV_BTN_STATE_TGL_PR, &video);
+    lv_imgbtn_set_style(imgbtn[0][4], LV_BTN_STATE_PR, &style_pr);
+    lv_imgbtn_set_style(imgbtn[0][4], LV_BTN_STATE_TGL_PR, &style_pr);
+
+    lv_imgbtn_set_src(imgbtn[0][5], LV_BTN_STATE_REL, &network);
+    lv_imgbtn_set_src(imgbtn[0][5], LV_BTN_STATE_PR, &network);
+    lv_imgbtn_set_src(imgbtn[0][5], LV_BTN_STATE_TGL_REL, &network);
+    lv_imgbtn_set_src(imgbtn[0][5], LV_BTN_STATE_TGL_PR, &network);
+    lv_imgbtn_set_style(imgbtn[0][5], LV_BTN_STATE_PR, &style_pr);
+    lv_imgbtn_set_style(imgbtn[0][5], LV_BTN_STATE_TGL_PR, &style_pr);
+
+    lv_imgbtn_set_src(imgbtn[1][0], LV_BTN_STATE_REL, &Wechat);
+    lv_imgbtn_set_src(imgbtn[1][0], LV_BTN_STATE_PR, &Wechat);
+    lv_imgbtn_set_src(imgbtn[1][0], LV_BTN_STATE_TGL_REL, &Wechat);
+    lv_imgbtn_set_src(imgbtn[1][0], LV_BTN_STATE_TGL_PR, &Wechat);
+    lv_imgbtn_set_style(imgbtn[1][0], LV_BTN_STATE_PR, &style_pr);
+    lv_imgbtn_set_style(imgbtn[1][0], LV_BTN_STATE_TGL_PR, &style_pr);
+
+    lv_imgbtn_set_src(imgbtn[1][1], LV_BTN_STATE_REL, &calendar);
+    lv_imgbtn_set_src(imgbtn[1][1], LV_BTN_STATE_PR, &calendar);
+    lv_imgbtn_set_src(imgbtn[1][1], LV_BTN_STATE_TGL_REL, &calendar);
+    lv_imgbtn_set_src(imgbtn[1][1], LV_BTN_STATE_TGL_PR, &calendar);
+    lv_imgbtn_set_style(imgbtn[1][1], LV_BTN_STATE_PR, &style_pr);
+    lv_imgbtn_set_style(imgbtn[1][1], LV_BTN_STATE_TGL_PR, &style_pr);
 
     lv_obj_align(imgbtn[0][0],rect,LV_ALIGN_IN_TOP_LEFT, 40,60);
     lv_obj_align(imgbtn[1][0],rect,LV_ALIGN_IN_LEFT_MID, 40,0);

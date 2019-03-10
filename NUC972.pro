@@ -721,7 +721,15 @@ SOURCES += \
     User/lvgl/lv_themes/lv_theme_templ.c \
     User/lvgl/lv_themes/lv_theme_zen.c \
     User/ui/desktop.c \
-    User/ui/music.c
+    User/ui/music.c \
+    User/ui/pic.c \
+    User/ui/file.c \
+    User/ui/setting.c \
+    User/ui/video.c \
+    User/ui/network.c \
+    User/ui/qq.c \
+    User/ui/Wechat.c \
+    User/ui/calendar.c
 
 
 

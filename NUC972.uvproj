@@ -1021,6 +1021,46 @@
               <FileType>1</FileType>
               <FilePath>.\User\ui\music.c</FilePath>
             </File>
+            <File>
+              <FileName>pic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\pic.c</FilePath>
+            </File>
+            <File>
+              <FileName>file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\file.c</FilePath>
+            </File>
+            <File>
+              <FileName>setting.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\setting.c</FilePath>
+            </File>
+            <File>
+              <FileName>video.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\video.c</FilePath>
+            </File>
+            <File>
+              <FileName>network.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\network.c</FilePath>
+            </File>
+            <File>
+              <FileName>qq.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\qq.c</FilePath>
+            </File>
+            <File>
+              <FileName>Wechat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\Wechat.c</FilePath>
+            </File>
+            <File>
+              <FileName>calendar.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\ui\calendar.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
