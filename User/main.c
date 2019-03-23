@@ -9,7 +9,38 @@
 #include "lcd.h"
 #include "lvgl.h"
 #include "lcd_bsp.h"
+#include "bsp_gt911.h"
+#include "bsp_i2c_gpio.h"
+#include "delay.h"
+void _init(void)
+{
+    *((volatile unsigned int *)REG_AIC_MDCR)=0xFFFFFFFF;  // disable all interrupt channel
+    *((volatile unsigned int *)REG_AIC_MDCRH)=0xFFFFFFFF;  // disable all interrupt channel
 
+    outpw(REG_CLK_HCLKEN, 0x0527);
+    outpw(REG_CLK_PCLKEN0, 0);
+    outpw(REG_CLK_PCLKEN1, 0);
+
+    sysDisableCache();
+    sysFlushCache(I_D_CACHE);
+    sysEnableCache(CACHE_WRITE_BACK);
+    sysInitializeUART();
+
+    IIC_Init();
+    GT911_InitHard();
+}
+
+int xxmain(void)
+{
+
+    _init();
+
+    while(1)
+    {
+        GT911_Scan();
+        delay_ms(100);
+    }
+}
 static void thread_1s(void *pvParameters);
 static void MainGui( void *pvParameters );
 void time_init(void);
@@ -21,6 +52,9 @@ int main(void)
     sysEnableCache(CACHE_WRITE_BACK);
     sysInitializeUART();
     sysSetLocalInterrupt(ENABLE_IRQ);
+
+    IIC_Init();
+    GT911_InitHard();
 
     time_init();
     lcd_init();
@@ -40,8 +74,9 @@ static void thread_1s(void *pvParameters)
     (void) pvParameters;
     while(1)
     {
-        vTaskDelay(1000/portTICK_RATE_MS);
+        vTaskDelay(100/portTICK_RATE_MS);
         sysprintf("*");
+        GT911_Scan();
     }
 }
 
@@ -70,7 +105,32 @@ static void tft_map(int32_t x1, int32_t y1, int32_t x2, int32_t y2, const lv_col
 {
     sysprintf("2 %d %d %d %d\n",x1,y1,  x2,  y2);
 }
+uint8_t GT911_get_xy(int16_t *x,int16_t *y);
+bool touchpad_read(lv_indev_data_t * data)
+{
+    static lv_coord_t last_x = 0;
+    static lv_coord_t last_y = 0;
+    uint8_t ret;
 
+    ret=GT911_get_xy(&last_x,&last_y);
+    if(ret)
+    {
+        data->state=LV_INDEV_STATE_PR;
+    }
+    else
+    {
+       data->state=LV_INDEV_STATE_REL;
+    }
+    /*Save the state and save the pressed cooridnate*/
+   // data->state = touchpad_is_pressed() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
+    //if(data->state == LV_INDEV_STATE_PR) touchpad_get_xy(&last_x, &last_y);
+
+    /*Set the coordinates (if released use the last pressed cooridantes)*/
+    data->point.x = last_x;
+    data->point.y = last_y;
+
+    return false; /*Return `false` because we are not buffering and no more data to read*/
+}
 #include "demo.h"
 #include "desktop.h"
 static void MainGui( void *pvParameters )
@@ -92,11 +152,17 @@ static void MainGui( void *pvParameters )
 
     lv_disp_drv_register(&disp_drv);
 
-    //demo_create();
+    lv_indev_drv_t indev_drv;
+    lv_indev_drv_init(&indev_drv);             /*Descriptor of a input device driver*/
+    indev_drv.type = LV_INDEV_TYPE_POINTER;    /*Touch pad is a pointer-like device*/
+    indev_drv.read = touchpad_read;            /*Set your driver function*/
+    lv_indev_drv_register(&indev_drv);         /*Finally register the driver*/
+
+    demo_create();
 
     //lv_obj_t * btn1 = lv_btn_create(lv_scr_act(), NULL);
 
-    desktop_ui_create(lv_scr_act());
+    //desktop_ui_create(lv_scr_act());
 
     while(1)
     {

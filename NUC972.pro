@@ -425,7 +425,13 @@ HEADERS += \
     User/lvgl/lv_conf_templ.h \
     User/lvgl/lvgl.h \
     User/ui/desktop.h \
-    User/lv_conf.h
+    User/lv_conf.h \
+    User/LCD/bsp.h \
+    User/LCD/bsp_gt911.h \
+    User/LCD/bsp_i2c_gpio.h \
+    User/LCD/bsp_lcd.h \
+    User/LCD/delay.h \
+    User/LCD/lcd_bsp.h
 
 SOURCES += \
     Driver/Source/2d.c \
@@ -729,7 +735,13 @@ SOURCES += \
     User/ui/network.c \
     User/ui/qq.c \
     User/ui/Wechat.c \
-    User/ui/calendar.c
+    User/ui/calendar.c \
+    User/LCD/bsp.c \
+    User/LCD/bsp_gt911.c \
+    User/LCD/bsp_i2c_gpio.c \
+    User/LCD/bsp_lcd.c \
+    User/LCD/delay.c \
+    User/LCD/lcd_bsp.c
 
 
 

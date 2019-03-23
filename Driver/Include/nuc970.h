@@ -2050,6 +2050,15 @@ typedef unsigned char     REG8;     ///< Define 8-bit register data type
 typedef unsigned short    REG16;    ///< Define 16-bit register data type
 typedef unsigned int      REG32;    ///< Define 32-bit register data type
 
+//add by qlqcect
+typedef volatile unsigned char     u8;     ///< Define 8-bit register data type
+typedef volatile unsigned short    u16;    ///< Define 16-bit register data type
+typedef volatile unsigned int      u32;    ///< Define 32-bit register data type
+
+typedef volatile char     s8;     ///< Define 8-bit register data type
+typedef volatile short    s16;    ///< Define 16-bit register data type
+typedef volatile int      s32;    ///< Define 32-bit register data type
+//end add
 
 #ifndef NULL
 #define NULL           (0)      ///< NULL pointer

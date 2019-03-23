@@ -446,6 +446,31 @@
               <FileType>1</FileType>
               <FilePath>.\User\LCD\lcd_bsp.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\LCD\bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_gt911.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\LCD\bsp_gt911.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_i2c_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\LCD\bsp_i2c_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\LCD\bsp_lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\LCD\delay.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
