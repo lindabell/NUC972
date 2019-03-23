@@ -595,14 +595,16 @@ static void GT911_WriteReg(UINT16 _usRegAddr, UINT8 *_pRegBuf, UINT8 _ucLen)
     IIC_Start();	/* 总线开始信号 */
 
     IIC_Send_Byte(g_GT911.i2c_addr);	/* 发送设备地址+写信号 */
-    
-sysprintf("A：%d",IIC_Wait_Ack());
+    IIC_Wait_Ack();
+//sysprintf("A：%d",IIC_Wait_Ack());
     IIC_Send_Byte(_usRegAddr >> 8);	/* 地址高8位 */
     
-sysprintf("B：%d",IIC_Wait_Ack());
+    IIC_Wait_Ack();
+//sysprintf("B：%d",IIC_Wait_Ack());
     IIC_Send_Byte(_usRegAddr);	/* 地址低8位 */
     
-sysprintf("C：%d\r\n",IIC_Wait_Ack());
+    IIC_Wait_Ack();
+//sysprintf("C：%d\r\n",IIC_Wait_Ack());
     for (i = 0; i < _ucLen; i++)
     {
         IIC_Send_Byte(_pRegBuf[i]);	/* 寄存器数据 */
@@ -866,7 +868,7 @@ uint8_t GT911_get_xy(int16_t *x,int16_t *y)
 //touch move
     }
 
-#if 1
+#if 0
     sysprintf("\r\n");
     sysprintf("(%5d,%5d,%3d) ", g_GT911.X1, g_GT911.Y1, g_GT911.S1);
     sysprintf("\r\n");

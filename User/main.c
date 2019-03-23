@@ -74,9 +74,8 @@ static void thread_1s(void *pvParameters)
     (void) pvParameters;
     while(1)
     {
-        vTaskDelay(100/portTICK_RATE_MS);
+        vTaskDelay(1000/portTICK_RATE_MS);
         sysprintf("*");
-        GT911_Scan();
     }
 }
 
