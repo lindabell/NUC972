@@ -12,35 +12,7 @@
 #include "bsp_gt911.h"
 #include "bsp_i2c_gpio.h"
 #include "delay.h"
-void _init(void)
-{
-    *((volatile unsigned int *)REG_AIC_MDCR)=0xFFFFFFFF;  // disable all interrupt channel
-    *((volatile unsigned int *)REG_AIC_MDCRH)=0xFFFFFFFF;  // disable all interrupt channel
 
-    outpw(REG_CLK_HCLKEN, 0x0527);
-    outpw(REG_CLK_PCLKEN0, 0);
-    outpw(REG_CLK_PCLKEN1, 0);
-
-    sysDisableCache();
-    sysFlushCache(I_D_CACHE);
-    sysEnableCache(CACHE_WRITE_BACK);
-    sysInitializeUART();
-
-    IIC_Init();
-    GT911_InitHard();
-}
-
-int xxmain(void)
-{
-
-    _init();
-
-    while(1)
-    {
-        GT911_Scan();
-        delay_ms(100);
-    }
-}
 static void thread_1s(void *pvParameters);
 static void MainGui( void *pvParameters );
 void time_init(void);
@@ -120,15 +92,11 @@ bool touchpad_read(lv_indev_data_t * data)
     {
        data->state=LV_INDEV_STATE_REL;
     }
-    /*Save the state and save the pressed cooridnate*/
-   // data->state = touchpad_is_pressed() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
-    //if(data->state == LV_INDEV_STATE_PR) touchpad_get_xy(&last_x, &last_y);
 
-    /*Set the coordinates (if released use the last pressed cooridantes)*/
     data->point.x = last_x;
     data->point.y = last_y;
 
-    return false; /*Return `false` because we are not buffering and no more data to read*/
+    return false;
 }
 #include "demo.h"
 #include "desktop.h"
@@ -138,9 +106,6 @@ static void MainGui( void *pvParameters )
 
 
     lv_init();
-    //tft_init();
-    //touch_init();
-    //lcd_init();
 
     lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);
@@ -157,11 +122,9 @@ static void MainGui( void *pvParameters )
     indev_drv.read = touchpad_read;            /*Set your driver function*/
     lv_indev_drv_register(&indev_drv);         /*Finally register the driver*/
 
-    demo_create();
+    //demo_create();
 
-    //lv_obj_t * btn1 = lv_btn_create(lv_scr_act(), NULL);
-
-    //desktop_ui_create(lv_scr_act());
+    desktop_ui_create(lv_scr_act());
 
     while(1)
     {
